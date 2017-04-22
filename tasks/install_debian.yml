@@ -16,7 +16,7 @@
     - ansible_distribution_release == "trusty"
 
 - name: Ubuntu start and enable runit service on systemd
-  sytemd:
+  systemd:
     name=runit
     enabled=yes
     state=started
