@@ -11,7 +11,14 @@
     name=runsvdir
     enabled=yes
     state=started
-  when: ansible_distribution|lower == "ubuntu"
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_release != "xenial"
+
+- name: Ubuntu - start and enable runit service on systemd
+  sytemd:
+    name=runit
+    enabled=yes
+    state=started
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_release == "xenial"
 
 - name: Debian - start and enable runit service
   service:
