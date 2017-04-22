@@ -13,7 +13,7 @@
     state=started
   when: 
     - ansible_distribution == "Ubuntu" 
-    - ansible_distribution_release != "xenial"
+    - ansible_distribution_release == "trusty"
 
 - name: Ubuntu start and enable runit service on systemd
   sytemd:
